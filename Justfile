@@ -10,18 +10,18 @@ install:
 # start prodigy for seattle
 run-prodigy-seattle:
     prodigy \
-        textcat.teach \
-        seattle_textcat_train_v0 \
-        en_core_web_trf \
+        spans.manual \
+        seattle_test_spans_minutes_item_seg \
+        blank:en \
         ./seattle.jsonl \
-        --label MINUTES-BOUNDARY,OTHER
+        --label MINUTES-BOUNDARY
 
 # train prodigy model for seattle
 train-prodigy-seattle:
     prodigy \
         train \
-        --textcat seattle_textcat_train_v0 \
-        --base-model en_core_web_trf \
+        --spancat seattle_test_spans_minutes_item_seg \
+        --base-model en_core_web_sm \
         --label-stats \
         --verbose
 
@@ -30,4 +30,4 @@ export-seattle:
     mkdir -p ./trial-datasets/
     prodigy \
         db-out \
-        seattle_textcat_train_v0 > ./trial-datasets/seattle-textcat-train-v0.jsonl
+        seattle_test_spans_minutes_item_seg > ./trial-datasets/seattle-test-spans-minutes-item-seg.jsonl
