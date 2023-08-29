@@ -16,6 +16,7 @@ span categorization model to identify them for us.
   * Eva is working on Seattle events
   * Sung is working on Denver events
   * Sarah is working on Portland events
+  * Rajat is working on King County events
   * {Place your name and what municipality you are working on here}
 * [ ] Train model to get early idea of how much annotated data is needed
 * [ ] Annotate more data as needed
