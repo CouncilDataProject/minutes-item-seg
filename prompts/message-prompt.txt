@@ -1,0 +1,13 @@
+Minutes Items:
+
+{minutes_items}
+
+---
+
+Transcript Portion:
+
+{transcript_portion}
+
+---
+
+Output:
