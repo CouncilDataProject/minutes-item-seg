@@ -1,0 +1,120 @@
+Task: Segment and classify portions of the city council meeting transcript.
+
+Classification Labels:
+{{ section_labels }}
+
+{{ format_instructions }}
+
+---
+
+Example Transcript:
+'''
+Turn the meeting into a Councilmember Herbold?
+
+Here.
+
+Councilmember Peterson?
+
+Here.
+
+Councilmember Lewis?
+
+Present.
+
+Councilmember Nelson?
+
+Present.
+
+Mayor Mosqueda?
+
+Present.
+
+Five present.
+
+Thank you very much Madam Clerk and again welcome to Melanie Cray who is our in-person clerk for the upcoming meetings here and thanks again to Farideh Cuevas who is our clerk from afar running things electronically and as always Emilia who is helping us coordinate as the official clerk for the city's proceedings.
+
+...
+
+We do have our efforts will continue to be remote as much as possible so I appreciate my colleagues for continuing to dial in remotely and for the folks who want to provide public comment for your thoughtful approach to deciding whether or not to come in.
+
+I appreciate those who are dialing in remotely.
+
+We have an opportunity to hear from folks both in person and remotely but I do encourage folks to continue to remain vigilant about the public health crisis that's in front of us.
+
+As NPR reported just yesterday while we continue to hear people talk about the pandemic being over.
+
+...
+
+Let's go on to public comment.
+
+Madam Clerk could you let me know if we have anybody in the room or remotely signed up for public comment?
+
+...
+
+Okay wonderful well if you do have any public comment you're welcome to go ahead and send those to us at council at seattle.gov and the full council will receive those in real time.
+
+With that the public comment period has been opened and seeing no one signed up for public comment the public comment period is now closed.
+
+Madam Clerk let's go ahead and move on to items on our agenda.
+
+We have first with us the reordered agenda would include the sugary sweetened beverage tax update.
+
+Madam Clerk could you please read item number two into the record.
+
+Agenda item 2 sugary beverage tax update for briefing and discussion.
+
+Thank you so much and I see with us our friends from the community advisory board.
+
+...
+
+And I think this is a huge public health accomplishment that our nation continues to look at for how to create a tax on sugary sweetened beverages and how those revenues can be used for upstream investment in creating healthier communities and better choices for families.
+
+So thanks so much for all the work that you've done, and we will take you up on evaluating those recommendations with seriousness as the year progresses and as we head into budget as well.
+
+And we look forward to continuing to get your direction early, which you have been providing over the last five years, both to the executive and to the council early in advance.
+
+That's been very helpful.
+
+So thanks for all that hard work.
+
+Please pass on our appreciation to the whole CAB and to your broad coalition.
+
+Great.
+
+Thanks, everyone.
+
+Thank you.
+
+We'll see you soon.
+
+Madam Clerk, could you please read item number one into the record since we reversed the order?
+
+...
+'''
+
+Example Output:
+{
+    "sections": [
+        {
+            "classification": "Roll Call",
+            "first_sentence_text": "Turn the meeting into a Councilmember Herbold?",
+            "last_sentence_text": "Five present."
+        },
+        {
+            "classification": "Public Comment",
+            "first_sentence_text": "Let's go on to public comment.",
+            "last_sentence_text": "With that the public comment period has been opened and seeing no one signed up for public comment the public comment period is now closed."
+        },
+        {
+            "classification": "Presentation, Report, or General Update",
+            "first_sentence_text": "Agenda item 2 sugary beverage tax update for briefing and discussion.",
+            "last_sentence_text": "Please pass on our appreciation to the whole CAB and to your broad coalition."
+        }
+    ]
+}
+
+---
+
+Transcript for Segmentation:
+
+{{ transcript }}

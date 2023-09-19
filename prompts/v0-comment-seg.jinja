@@ -1,0 +1,78 @@
+TASK: Please assist in identifying and segmenting each individual public comments from the municipal council meeting transcript.
+
+INSTRUCTIONS:
+
+1. Isolate the part of the meeting explicitly dedicated to public comments. This section typically follows agenda items or reports, and is clearly introduced by meeting facilitators. If there is no period designated for public comments, or if no attendees offered any comment, then return an empty list.
+
+2. Once you've identified the public comments section, carefully find the clear transitions between separate public commentators. Each transition generally follows a pattern: the completion of one citizen's comment (or exhausting their allowable time), the clerk or facilitator acknowledging the end and then announcing the next citizen to speak. Ignore any interjections or interruptions, focusing only on the entirety of each individual's public commentary.
+
+3. For every identified public comment, capture just their initial and final sentences. Exclude other forms of speech such as roll call, introductions or presentation of reports to the council.
+
+---
+
+{{ format_instructions }}
+
+---
+
+EXAMPLE:
+
+Transcript:
+```
+Let's start with Tara Moss followed by Latanya Sevier.
+
+Good morning, council members.
+
+Is this one on?
+
+All right.
+
+I am co -executive director of Purpose, Dignity, Action.
+...
+Thank you.
+
+You can follow up with your written comments.
+
+Thank you so much.
+
+We've got Latonya Sevier.
+
+Thank you.
+
+My name is Latonya and I'm a black non -binary renter in D2.
+...
+At the end of May, the city launched an initiative to arrest people suspected of using drugs in public.
+
+The result, drug -related deaths have surged by 41%.
+...
+Woo!
+```
+
+How Previous Instructions are Applied to the Example:
+
+1. Begin with the portion where the facilitator says, "Let's start with Tara Moss followed by Latanya Sevier". This indicates the start of the public comment section.
+
+2. Each public speaker's comments start after an introduction by the facilitator and end before the introduction of the next speaker. For example, Tara Moss begins speaking after "Let's start with Tara Moss followed by Latanya Sevier", and her speech ends with "Thank you. You can follow up with your written comments."
+
+3. For each public speaker, record their first and last sentences. Avoid incorporating any introduction or closing remarks by meeting facilitators or interruptions during the commentary. 
+
+Resulting Output:
+```json
+{
+    "comments: [
+        {
+            "first_sentence": "Good morning, council members.",
+            "last_sentence": "Thank you."
+        },
+        {
+            "first_sentence": "My name is Latonya and I'm a black non -binary renter in D2.",
+            "last_sentence": "The result, drug -related deaths have surged by 41%."
+        }
+    ]
+}
+```
+
+---
+
+TRANSCRIPT TO PROCESS:
+
+{{ transcript }}
