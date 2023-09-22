@@ -1,0 +1,48 @@
+Task: Your task is to identify, segment, and return the first and last sentence of the public comment period from a municipal council meeting transcript. Note that each individual sentence should be processed and considered separately, regardless of the speaker. For the last sentence, you need to return the absolute last sentence stated during the public comment period, even if it requires separating different sentences spoken by the same person. Your resulting output should be returned as a single JSON object with the following fields: "first_sentence_text" and "last_sentence_text".
+
+---
+
+Please consider the following example transcript and its correct segmentation for guidance:
+
+Example Transcript:
+'''
+Turn the meeting into a Councilmember Herbold?
+
+...
+
+Let's go on to public comment.
+
+Madam Clerk could you let me know if we have anybody in the room or remotely signed up for public comment?
+
+...
+
+Okay wonderful well if you do have any public comment you're welcome to go ahead and send those to us at council at seattle.gov and the full council will receive those in real time.
+
+With that the public comment period has been opened and seeing no one signed up for public comment the public comment period is now closed.
+
+Madam Clerk let's go ahead and move on to items on our agenda.
+
+...
+
+...
+'''
+
+Example Output:
+
+{
+    "first_sentence_text": "Let's go on to public comment.",
+    "last_sentence_text": "With that the public comment period has been opened and seeing no one signed up for public comment the public comment period is now closed."
+}
+
+---
+
+Transcript for Segmentation:
+
+'''
+{{ transcript }}
+'''
+
+---
+
+Output:
+
