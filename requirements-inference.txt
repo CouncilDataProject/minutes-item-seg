@@ -1,3 +1,5 @@
 langchain==0.0.279
 pydantic>=1.10.12,<2
 openai>=0.28,<1
+segeval>=2,<3
+anthropic
