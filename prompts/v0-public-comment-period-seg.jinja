@@ -1,4 +1,18 @@
-Task: Your task is to identify, segment, and return the first and last sentences for each of the public comment periods from a municipal council meeting transcript. Note that each individual sentence should be processed and considered separately, regardless of the speaker.
+Task: Your task is to identify, segment, and return the first and last sentences for each of the public comment periods from a municipal council meeting transcript. These sentences usually follow a pattern similar to the following examples:
+
+first_sentence_text examples
+* "The public comment period is now open."
+* "Let's go on to public comment."
+* "We will now open the public comment period."
+
+last_sentence_text examples
+* "The public comment period is now closed."
+* "Seeing no one signed up for public comment the public comment period is now closed."
+* "The public comment period is now closed and we will now move on to items on our agenda."
+
+Sometimes the words "public hearing" are used instead of "public comment" but public hearings should also be returned.
+
+Output Schema:
 
 {{ format_instructions }}
 
